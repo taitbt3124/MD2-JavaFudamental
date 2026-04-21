@@ -7,10 +7,14 @@ public class gioi2 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập chiều rộng: ");
-        float width = sc.nextFloat();
+//        System.out.print("Nhập chiều rộng: ");
+//        float width = sc.nextFloat();
+//
+//        System.out.print("Nhập chiều dài: ");
+//        float height = sc.nextFloat();
 
-        System.out.print("Nhập chiều dài: ");
+        System.out.println("Nhập chiều dài và chiều rộng ngăn cách bởi dấu cách");
+        float width =  sc.nextFloat();
         float height = sc.nextFloat();
 
         float area =  width * height;
