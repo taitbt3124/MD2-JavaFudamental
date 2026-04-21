@@ -11,7 +11,6 @@ public class gioi1 {
 
         System.out.print("Nhập mẫu số b: ");
         int b = sc.nextInt();
-
         System.out.print("Nhập mẫu số c: ");
         int c = sc.nextInt();
 
