@@ -21,9 +21,5 @@ public class xuatsac2 {
         }
 
 
-
-
-
-
     }
 }
