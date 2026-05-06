@@ -1,73 +1,102 @@
 package module_3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ex2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int count = 0;
-        double totalScore = 0;
-        double maxScore = -1;
-        double minScore = 11;
-        int choice;
+        int n;
+        int total_student;
+        int sum_score = 0;
+        int score = 0;
+        int number_of_students = 0;
+        ArrayList list = new ArrayList();
+        do{
 
-        do {
-            System.out.println("\n====== MENU ======");
+            System.out.println("********************** MENU NHẬP ĐIỂM **********************");
             System.out.println("1. Nhập điểm học viên");
             System.out.println("2. Hiển thị thống kê");
             System.out.println("3. Thoát");
             System.out.print("Lựa chọn của bạn: ");
-            choice = sc.nextInt();
-
-            switch (choice) {
+            n = sc.nextInt();
+            switch (n){
                 case 1:
-                    System.out.println("Nhập điểm học viên (nhập -1 để dừng)");
-                    while (true) {
-                        System.out.print("Nhập điểm: ");
-                        double score = sc.nextDouble();
+                    System.out.println("1. Nhập điểm học viên");
 
-                        if (score == -1) break; [cite: 26, 57]
+                    while (true){
 
-                        if (score < 0 || score > 10) { [cite: 27, 52]
-                            System.out.println("Điểm không hợp lệ. Nhập lại.");
-                            continue;
-                        }
+                            System.out.print("Nhập điểm học sinh: ");
+                            score =  sc.nextInt();
 
-                        // Xếp loại học lực [cite: 28, 54]
-                        String rank;
-                        if (score < 5) rank = "Yếu";
-                        else if (score < 7) rank = "Trung Bình";
-                        else if (score < 8) rank = "Khá";
-                        else if (score < 9) rank = "Giỏi";
-                        else rank = "Xuất sắc";
+                            if(score == -1){
+                                int minValue = (int) Collections.min(list);
+                                int maxValue = (int) Collections.max(list);
+                                System.out.print("\n ************************************* \n");
+                                System.out.printf("Tổng sô điểm : %d \n", sum_score);
+                                System.out.printf("Tổng người : %d \n", number_of_students);
+                                System.out.printf("MIN : %d | MAX: %d\n",minValue,maxValue);
+                                System.out.println("Thoát quá trình nhập");
+                                System.out.print("\n ************************************* \n");
 
-                        System.out.println("Học lực: " + rank);
+                                break;
+                            } else if (score > 10 || score < 0) {
+                                System.out.println("Nhập sai, nhập lại!!!");
+                            }
+                            else {
+                                list.add(score);
 
-                        // Thống kê [cite: 29, 30, 31, 32, 33]
-                        count++;
-                        totalScore += score;
-                        if (score > maxScore) maxScore = score;
-                        if (score < minScore) minScore = score;
+                                sum_score += score;
+                                number_of_students ++;
+                                if(score < 5 ) {
+                                    System.out.println("Yếu");
+                                }
+                                else if (score < 7 ) {
+                                    System.out.println("Trung Bình");
+                                }
+                                else if (score < 8 ) {
+                                    System.out.println("Khá");
+                                }
+                                else if (score < 9 ) {
+                                    System.out.println("Giỏi");
+                                }
+                                else{
+                                    System.out.println("Xuất sắc");
+                                }
+                            }
+
+
                     }
+
                     break;
                 case 2:
-                    if (count == 0) { [cite: 35]
+                    if(list.isEmpty()){
                         System.out.println("Chưa có dữ liệu");
-                    } else { [cite: 36, 65, 66]
-                        System.out.println("KẾT QUẢ");
-                        System.out.println("Số học viên đã nhập: " + count);
-                        System.out.printf("Điểm trung bình: %.2f\n", (totalScore / count));
-                        System.out.printf("Điểm cao nhất: %.2f\n", maxScore);
-                        System.out.printf("Điểm thấp nhất: %.2f\n", minScore);
                     }
+                    else {
+                        int minValue = (int) Collections.min(list);
+                        int maxValue = (int) Collections.max(list);
+                        System.out.print("\n ************************************* \n");
+                        System.out.println("Hiển thị thống kê");
+                        System.out.println("Danh sách điểm: " + list);
+                        System.out.printf("Tổng sô điểm : %d \n", sum_score);
+                        System.out.printf("Tổng người : %d \n", number_of_students);
+                        System.out.printf("MIN : %d | MAX: %d\n",minValue,maxValue);
+                        System.out.println("Thoát quá trình nhập");
+                        System.out.print("\n ************************************* \n");
+                    }
+
+
                     break;
                 case 3:
-                    System.out.println("Kết thúc chương trình."); [cite: 42, 70]
-                    System.exit(0);
+                    System.out.println("Thoát");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ!");
+                    System.out.println("Lựa cnọn không hợp lệ!!!");
+                    break;
             }
-        } while (choice != 3);
+        } while (n != 3);
     }
 }

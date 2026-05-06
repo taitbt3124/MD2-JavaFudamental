@@ -16,23 +16,27 @@ public class ex1 {
         System.out.print("Is Member : ");
         boolean isMember = sc.nextBoolean();
         float total = 0;
+        float sale = 0;
 
 //        System.out.printf("%s | %s | %f | %d", cusName, productName_phone, productPrice, valueBuy);
         float price = productPrice * valueBuy;
         if (isMember) {
-            price = price - (0.1f * price);
+            sale = 0.1f * price;
         }
         float vat = price* 0.08f;
 
-        total = price + vat;
+        total = price - sale + vat;
 
-        System.out.printf("Khách hàng: %s",cusName);
-        System.out.printf("Sản phẩm: %s",productName);
-        System.out.printf("Giá: %.2f",productPrice);
-        System.out.printf("Số lượng: %2f",productPrice);
-        System.out.printf("Thành tiền: %s",cusName);
-        System.out.printf("Giảm giá: %s",cusName);
-        System.out.printf("Tiền VAT: %s",cusName);
-        System.out.printf("Tổng tiền thanh toán: %s",cusName);
+        System.out.print("-------------- BILL --------------");
+        System.out.printf("\n Khách hàng: %s",cusName);
+        System.out.printf("\n Sản phẩm: %s",productName);
+        System.out.printf("\n Giá: %.2f",productPrice);
+        System.out.printf("\n Số lượng: %d",valueBuy);
+        System.out.printf("\n Thành tiền: %s",price);
+        System.out.printf("\n Giảm giá: %.2f",sale);
+        System.out.printf("\n Tiền VAT: %.2f",vat);
+        System.out.printf("\n Tổng tiền thanh toán: %.2f",total);
+        System.out.print("\n -------------- END BILL --------------");
+        System.out.print("");
     }
 }
